@@ -3,15 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cd src/server && npm install && npm start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider cd src/server && npm install && npm start",
     "dev": "concurrently \"cd src/server && nodemon\" \"cd src/client && npm start\"",
     "logs": "heroku logs -t",
     "heroku-postbuild": "cd src/client && npm install && npm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "cors": "^2.8.5",
+    "nodemailer": "^6.10.0",
+    "react-router-dom": "^7.3.0",
+    "react-scripts": "^5.0.1"
+  },
   "engines": {
     "node": ">=12.16.1",
     "npm": ">=6.13.4"
-  },
-  "devDependencies": {}
+  }
 }

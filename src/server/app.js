@@ -18,11 +18,13 @@ app.use("/api", apiRouter);
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// Serve the React app for any route
 app.get("*", (req, res) => {
-  console.log("req.path", req.path);
-  res.sendFile(path.join(__dirname + "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"), (err) => {
+    if (err) {
+      res.status(err.status).end();
+    }
+  });
 });
 
 module.exports = app;
