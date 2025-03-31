@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate  } from 'react-router-dom';
 import pokerImage from './images/HomeScreen.jpg';
 import pokerImage2 from './images/poker.png';
 import cfrImage from './images/cfr.png';
 import gavin from './images/gavin.jpeg'
 import viperImage from './images/viper.png'
 import Navbar from './Navbar';
+import David from './images/David.JPG'
+import RJ from './images/Rj.png'
+import evan from './images/evan.png'
 
-const Home = ({handleShowCFR}) => {
+const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -20,6 +24,12 @@ const Home = ({handleShowCFR}) => {
   const toggleModal = () => setModalVisible(!modalVisible);
   const toggleMenu = () => setMenuVisible(!menuVisible);
 
+
+  const navigate = useNavigate(); // Initialize useHistory
+
+  const handleShowCFR = () => {
+    navigate('/cfr'); // Navigate to the CFR route
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -73,8 +83,18 @@ const Home = ({handleShowCFR}) => {
   return (
     <div>
       {/* Navbar */}
-      <Navbar />
-
+      {/*
+      <div className="w3-top">
+                <div className="w3-bar w3-white w3-wide w3-padding w3-card">
+                    <a href="#home" className="w3-bar-item w3-button"><b>XAI Poker</b></a>
+                    <div className="w3-right w3-hide-small">
+                        <a href="#Process" className="w3-bar-item w3-button">Process</a>
+                        <a href="#about" className="w3-bar-item w3-button">About</a>
+                        <a href="#contact" className="w3-bar-item w3-button">Contact</a>
+                    </div>
+                </div>
+            </div>
+*/}
       {/* Header */}
       <header className="w3-display-container w3-content w3-wide" style={{ maxWidth: "1500px" }} id="home">
       <img className="w3-image" src={pokerImage} alt="Poker AI" style={{ width: '1500px', height: 'auto', maxHeight: '600px'}}/> 
@@ -97,33 +117,34 @@ const Home = ({handleShowCFR}) => {
         <div className="w3-container w3-padding-32" id="Process">
           <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Process</h3>
           <div className="w3-row-padding">
-            {/* Add your project images here */}
+            {/* CFR Agent */}
             <div className="w3-col l3 m6 w3-margin-bottom">
               <div className="w3-display-container">
                 <div className="w3-display-topleft w3-black w3-padding">CFR Agent</div>
                 <button 
-            onClick={handleShowCFR} 
-            style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer' }}
-          >
-            <img src={cfrImage} alt="CFR Agent" style={{ width: "100%" }} />
-          </button>
-          
-              </div>
-            </div>
-            {/* Repeat for other Process */}
-            <div className="w3-col l3 m6 w3-margin-bottom">
-              <div className="w3-display-container">
-                <div className="w3-display-topleft w3-black w3-padding">Training Process</div>
-                <img src={pokerImage} alt="House" style={{ width: "100%" }} />
-              </div>
-            </div>
-            <div className="w3-col l3 m6 w3-margin-bottom">
-              <div className="w3-display-container">
-                <div className="w3-display-topleft w3-black w3-padding">VIPER Explainability</div>
-                <img src={viperImage} alt="House" style={{ width: '400px', height: 'auto', maxHeight: '600px', maxWidth: '600px'}} />
+                  onClick={handleShowCFR} 
+                  style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer' }}
+                >
+                  <img src={cfrImage} alt="CFR Agent" style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "top" }} />
+                </button>
               </div>
             </div>
 
+            {/* Training Process */}
+            <div className="w3-col l3 m6 w3-margin-bottom">
+              <div className="w3-display-container">
+                <div className="w3-display-topleft w3-black w3-padding">Training Process</div>
+                <img src={pokerImage} alt="Training Process" style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "top" }} />
+              </div>
+            </div>
+
+            {/* VIPER Explainability */}
+            <div className="w3-col l3 m6 w3-margin-bottom">
+              <div className="w3-display-container">
+                <div className="w3-display-topleft w3-black w3-padding">VIPER Explainability</div>
+                <img src={viperImage} alt="VIPER Explainability" style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "top" }} />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -145,7 +166,7 @@ const Home = ({handleShowCFR}) => {
         {/* Team Section */}
         <div className="w3-row-padding">
           <div className="w3-col l3 m6 w3-margin-bottom">
-            <img src={gavin} alt="John" style={{ width: "100%" }} />
+            <img src={gavin} alt="Gavin Galusha" style={{ width: "100%", height: "300px", objectFit: "cover", objectPosition: "top" }} />
             <h3>Gavin Galusha</h3>
             <p className="w3-opacity"></p>
             <p></p>
@@ -153,24 +174,24 @@ const Home = ({handleShowCFR}) => {
           </div>
 
           <div className="w3-col l3 m6 w3-margin-bottom">
-            <img src={pokerImage} alt="John" style={{ width: "100%" }} />
-            <h3>Gavin Galusha</h3>
+            <img src={RJ} alt="Rouqin Ji" style={{ width: "100%", height: "300px", objectFit: "cover", objectPosition: "top" }} />
+            <h3>Rouqin Ji</h3>
             <p className="w3-opacity"></p>
             <p></p>
             <p><button className="w3-button w3-light-grey w3-block">Contact</button></p>
           </div>
 
           <div className="w3-col l3 m6 w3-margin-bottom">
-            <img src={pokerImage} alt="John" style={{ width: "100%" }} />
-            <h3>Gavin Galusha</h3>
+            <img src={David} alt="David Webster" style={{ width: "100%", height: "300px", objectFit: "cover", objectPosition: "top" }} />
+            <h3>David Webster</h3>
             <p className="w3-opacity"></p>
             <p></p>
             <p><button className="w3-button w3-light-grey w3-block">Contact</button></p>
           </div>
 
           <div className="w3-col l3 m6 w3-margin-bottom">
-            <img src={pokerImage} alt="John" style={{ width: "100%" }} />
-            <h3>Gavin Galusha</h3>
+            <img src={evan} alt="Evan Nyhus" style={{ width: "100%", height: "300px", objectFit: "cover", objectPosition: "top" }} />
+            <h3>Evan Nyhus</h3>
             <p className="w3-opacity"></p>
             <p></p>
             <p><button className="w3-button w3-light-grey w3-block">Contact</button></p>
@@ -180,7 +201,7 @@ const Home = ({handleShowCFR}) => {
         {/* Contact Section */}
         <div className="w3-container w3-padding-32" id="contact">
           <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-          <p>Lets get in touch!</p>
+          <p>Let's get in touch!</p>
           <form onSubmit={handleSubmit}>
         <input
           className="w3-input w3-border"

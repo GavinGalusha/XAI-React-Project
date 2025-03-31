@@ -30,24 +30,14 @@ const CFR = () => {
 
     return (
         <div>
-            {/* Navbar */}
-            <div className="w3-top">
-                <div className="w3-bar w3-white w3-wide w3-padding w3-card">
-                    <a href="#home" className="w3-bar-item w3-button"><b>XAI Poker</b></a>
-                    <div className="w3-right w3-hide-small">
-                        <a href="#Process" className="w3-bar-item w3-button">Process</a>
-                        <a href="#about" className="w3-bar-item w3-button">About</a>
-                        <a href="#contact" className="w3-bar-item w3-button">Contact</a>
-                    </div>
-                </div>
-            </div>
+            
 
             {/* Header */}
             <header className="w3-display-container w3-content w3-wide" style={{ maxWidth: "1500px" }} id="home">
                 <img className="w3-image" src={pokerImage} alt="Poker AI" style={{ width: '1500px', height: 'auto', maxHeight: '600px' }} />
                 <div className="w3-display-middle w3-margin-top w3-center">
                     <h1 className="w3-xxlarge w3-text-white">
-                        <span className="w3-padding w3-black w3-opacity-min"><b>XAI Poker</b></span>
+                        <span className="w3-padding w3-black w3-opacity-min"><b>CounterFactual Regret Minimization</b></span>
                         <span className="w3-hide-small w3-text-light-grey"></span>
                     </h1>
                 </div>
@@ -57,32 +47,23 @@ const CFR = () => {
             <div className="w3-content w3-padding" style={{ maxWidth: "1564px" }}>
                 {/* Project Section */}
                 <div className="w3-container w3-padding-32" id="Process">
-                    <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Process</h3>
-                    <div className="w3-row-padding">
-                        {/* Add your project images here */}
-                        <div className="w3-col l3 m6 w3-margin-bottom">
-                            <div className="w3-display-container">
-                                <div className="w3-display-topleft w3-black w3-padding">CFR Agent</div>
-                                <img src={cfrImage} alt="CFR Agent" style={{ width: "100%" }} />
-                            </div>
-                        </div>
-                        {/* Repeat for other Process */}
-                        <div className="w3-col l3 m6 w3-margin-bottom">
-                            <div className="w3-display-container">
-                                <div className="w3-display-topleft w3-black w3-padding">Training Process</div>
-                                <img src={pokerImage} alt="Training Process" style={{ width: "100%" }} />
-                            </div>
-                        </div>
-                        <div className="w3-col l3 m6 w3-margin-bottom">
-                            <div className="w3-display-container">
-                                <div className="w3-display-topleft w3-black w3-padding">VIPER Explainability</div>
-                                <img src={viperImage} alt="VIPER Explainability" style={{ width: '400px', height: 'auto', maxHeight: '600px', maxWidth: '600px' }} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Process</h3>
+  <p style={{ fontSize: '16px', lineHeight: '1.5', marginTop: '20px', color: 'white' }}>
+    Counterfactual Regret Minimization (CFR) is a powerful algorithm used in game theory and artificial intelligence to compute optimal strategies in imperfect information games. The process can be broken down into the following steps:
+  </p>
+  <ul style={{ fontSize: '16px', lineHeight: '1.5', marginTop: '10px', color: 'white' }}>
+    <li><strong>Initialization:</strong> The algorithm begins by initializing the regret values for each action in the game. These values represent the difference between the actual payoff and the best possible payoff had a different action been chosen.</li>
+    <li><strong>Simulating the Game:</strong> The game is simulated multiple times, allowing agents to explore different strategies and outcomes. During each simulation, players make decisions based on their current strategies.</li>
+    <li><strong>Regret Calculation:</strong> After each round of the game, the algorithm calculates the regret values for each action taken. This involves comparing the actual outcomes with the potential outcomes had different actions been chosen.</li>
+    <li><strong>Strategy Update:</strong> The regret values are then used to update the players' strategies. Actions with higher regret values are more likely to be chosen in future iterations, while actions with lower regret values are less likely to be selected.</li>
+    <li><strong>Convergence:</strong> Over time, as the simulations continue, the regret values converge, leading to strategies that approach Nash equilibria. At this point, no player has an incentive to deviate from their strategy, as doing so would not yield a better outcome.</li>
+    <li><strong>Application:</strong> CFR has been successfully applied in various domains, including poker, where it helps AI agents make decisions that are nearly optimal against human opponents.</li>
+  </ul>
+</div>
+
+
+</div>
+</div>
     );
 };
 

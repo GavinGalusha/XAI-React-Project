@@ -23,9 +23,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar/>
         <Routes>
-          <Route path="/" element={<Home handleShowCFR={handleShowGraph} />} /> {/* Default route */}
+          <Route path="/" element={<Home />} />
           <Route path="/cfr" element={<CFR />} />
           <Route path="/demo" element={<Demo />} />
         </Routes>
